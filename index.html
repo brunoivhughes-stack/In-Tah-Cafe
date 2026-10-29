@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In-Tah Cafe | Sip • Talk • Connect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2d4a3e;
+            --primary-dark: #1b2f27;
+            --accent: #c29b38;
+            --accent-light: #f4ebd0;
+            --earth-brown: #5c4033;
+            --earth-light: #8b5a2b;
+            --bg-cream: #faf7f2;
+            --card-bg: #ffffff;
+            --text-dark: #2c221e;
+            --text-muted: #6b5b53;
+            --border-color: #e6ded3;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(250, 247, 242, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(45, 74, 62, 0.08);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--primary);
+            color: var(--accent-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(45,74,62,0.2);
+        }
+
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+
+        .logo-text span {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(45,74,62,0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(rgba(45, 74, 62, 0.7), rgba(27, 47, 39, 0.8)), url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(194, 155, 56, 0.2);
+            border: 1px solid var(--accent);
+            color: var(--accent-light);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            margin-bottom: 2.5rem;
+            color: #e2ded7;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Announcements Banner */
+        .announcement-bar {
+            background-color: var(--accent-light);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem 0;
+            margin: -30px auto 0;
+            max-width: 1000px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 10;
+        }
+
+        .announcement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            padding: 0 2rem;
+        }
+
+        .announcement-item h4 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .announcement-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-img-box {
+            position: relative;
+        }
+
+        .about-img-box img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .about-tag {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--primary);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(45,74,62,0.2);
+            text-align: center;
+        }
+
+        .about-tag span {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+            font-family: 'Playfair Display', serif;
+            color: var(--accent);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .mission-vision-box {
+            background: var(--bg-cream);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+            border-left: 3px solid var(--primary);
+        }
+
+        .mission-vision-box h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Menu Section */
+        .menu-section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: white;
+            border: 1px solid var(--border-color);
+            padding: 0.7rem 1.8rem;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--text-muted);
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 4px 15px rgba(45,74,62,0.2);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            display: none;
+        }
+
+        .menu-grid.active {
+            display: grid;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-item-header h3 {
+            font-size: 1.15rem;
+            color: var(--primary-dark);
+        }
+
+        .menu-price {
+            font-weight: 700;
+            color: var(--earth-light);
+            font-size: 1.1rem;
+        }
+
+        .menu-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Team / Organization */
+        .team-section {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-card {
+            background: var(--bg-cream);
+            padding: 2rem 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .team-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            color: var(--accent-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 1.2rem;
+        }
+
+        .team-card h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .team-card p {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.8rem;
+        }
+
+        .team-card small {
+            display: block;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Careers & Events Section */
+        .info-split {
+            padding: 100px 0;
+            background: linear-gradient(rgba(45,74,62,0.03), rgba(45,74,62,0.03));
+        }
+
+        .split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .split-box {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+
+        .split-box h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .split-box p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .job-details {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .job-details li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+
+        .job-details i {
+            color: var(--accent);
+        }
+
+        /* Contact & Footer */
+        .contact-section {
+            padding: 100px 0 50px;
+            background-color: var(--primary-dark);
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .contact-info h3 {
+            color: var(--accent-light);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p, .contact-info a {
+            color: #d1cbc1;
+            text-decoration: none;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.95rem;
+        }
+
+        .contact-info a:hover {
+            color: white;
+        }
+
+        .contact-info i {
+            color: var(--accent);
+            margin-top: 4px;
+        }
+
+        .hours-list {
+            list-style: none;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.95rem;
+            color: #d1cbc1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #9c9389;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media(max-width: 968px) {
+            .about-grid, .split-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .mobile-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-mug-hot"></i></div>
+                <div class="logo-text">In-Tah Cafe<span>Sip • Talk • Connect</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#careers">Careers</a></li>
+                <li><a href="#contact" class="btn-primary">Contact Us</a></li>
+            </ul>
+            <div class="mobile-toggle"><i class="fa-solid fa-bars"></i></div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <span class="hero-badge"><i class="fa-solid fa-location-dot"></i> Barangay Sagana, Santiago City</span>
+            <h1>Where Every Cup Brings People Closer Together</h1>
+            <p>Born from a couple's shared love for coffee and café dates, In-Tah Cafe is your cozy community haven for handcrafted drinks, delicious meals, and meaningful moments.</p>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn-primary">Explore Menu</a>
+                <a href="https://facebook.com/share/1FH3BSLJ6x" target="_blank" class="btn-outline"><i class="fa-brands fa-facebook"></i> Message Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Announcement Bar -->
+    <div class="container">
+        <div class="announcement-bar">
+            <div class="announcement-grid">
+                <div class="announcement-item">
+                    <h4><i class="fa-solid fa-cake-candles"></i> New Menu Offering</h4>
+                    <p>Try our creamy, delightful <strong>Matcha Tiramisu</strong>—now available for dessert lovers!</p>
+                </div>
+                <div class="announcement-item">
+                    <h4><i class="fa-solid fa-music"></i> Upcoming Live Music</h4>
+                    <p>Catch <strong>Soul Sync</strong> live on <strong>28 October 2026 (6:00 PM - 10:00 PM)</strong>!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-img-box">
+                    <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=800&q=80" alt="Cozy Cafe Ambiance">
+                    <div class="about-tag">
+                        <span>100%</span>
+                        Made with Love
+                    </div>
+                </div>
+                <div>
+                    <h2 class="section-title">Our Story & Heart</h2>
+                    <p>In-Tah Cafe began with a simple love story between a married couple who shared a passion for coffee and café dates. Over cups of coffee, they shared conversations, laughter, and dreams. Wanting to share that same warmth and happiness with the community, their dream became a reality in Barangay Sagana, Isabela.</p>
+                    
+                    <div class="mission-vision-box">
+                        <h4>Our Mission</h4>
+                        <p>To serve quality coffee and delicious food while creating a welcoming space where people can connect, share stories, and make lasting memories.</p>
+                    </div>
+
+                    <div class="mission-vision-box">
+                        <h4>Our Core Values</h4>
+                        <p><strong>Quality:</strong> Beverages and food prepared with care. | <strong>Hospitality:</strong> Warmth and genuine care. | <strong>Connection:</strong> Strengthening relationships.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Delicious Menu</h2>
+                <p>Explore our handcrafted coffees, refreshing specialty series, rice meals, burgers, and satisfying snacks.</p>
+            </div>
+
+            <div class="menu-tabs">
+                <button class="tab-btn active" onclick="switchTab(event, 'coffee')">Coffee & Non-Coffee</button>
+                <button class="tab-btn" onclick="switchTab(event, 'matcha')">Matcha Series</button>
+                <button class="tab-btn" onclick="switchTab(event, 'meals')">Rice Meals & Burgers</button>
+                <button class="tab-btn" onclick="switchTab(event, 'snacks')">Pasta & Snacks</button>
+            </div>
+
+            <!-- Coffee & Non-Coffee -->
+            <div id="coffee" class="menu-grid active">
+                <div class="menu-card"><div class="menu-item-header"><h3>Campfire Latte</h3><span class="menu-price">₱150</span></div><p class="menu-desc">Signature espresso with toasted marshmallow notes.</p></div>
+                <div class="menu-card"><div class="menu-item-header"><h3>Spanish Latte</h3><span class="menu-price">₱120</span></div><p class="menu-desc">Smooth, sweet, and comforting traditional espresso treat.</p></div>
+                <div class="menu-card"><div class="menu-item-header"><h3>Salted Caramel</h3><span class="menu-price">₱115</span></div><p class="menu-desc">Rich caramel balanced with a hint of sea salt.</p></div>
+                <div class="menu-card"><div class="menu-item-header"><h3>Americano</h3><span class="menu-price">₱105</span></div><p class="menu-desc">Clean, bold double shot of pure espresso.</p></div>
+                <div class="menu-card"><div class="menu-item-header"><h3>Biscoff (Non-Coffee)</h3><span class="menu-price">₱145</span></div><p class="menu-desc">Creamy blended beverage with rich Biscoff cookie flavor.</p></div>
+                <div class="menu-card"><div class="menu-item-header"><h3>Chocolate Lava</h3><span class="menu-price">₱130</span></div><p class="menu-desc">Deep, velvety chocolate indulgence.</p></div>
+            </div>
+
+            <!-- Matcha Series -->
+            <div id="matcha" class="menu-grid">
+                <div class="menu-card"><div class="menu-item-header"><h3>Dirty Matcha</h3><span class="menu-price">₱125</span></div><p class="menu-desc">Earthy premium matcha layered with a shot of espresso.</p></div>
+                <div class="menu-card"><div class="menu-item-header"><h3>Matcha Latte</h3><span class="menu-price">₱130</span></div><p class="menu-desc">Classic smooth ceremonial-grade Japanese green tea.</p></div>
+                <div class="menu-card"><div class="menu-item-header"><h3>Strawberry Matcha</h3><span class="menu-price">₱135</span></div><p class="menu-desc">Sweet fruit puree blended with rich green tea.</p></div>
+                <div class="menu-card"><div class="menu-item-header"><h3>Biscoff Matcha</h3><span class="menu-price">₱150</span></div><p class="menu-desc">Unique fusion of matcha and crushed cookies.</p></div>
+                <div class="menu-card"><div class="menu-item-header"><h3>Fruit Sodas</h3><span class="menu-price">₱80</span></div><p class="menu-desc">Refreshing Strawberry, Blueberry, or Lychee sodas.</p></div>
+            </div>
+
+            <!-- Rice Meals & Burgers -->
+            <div id="meals" class="menu-grid">
+                <div class="menu-card"><div class="menu-item-header"><h3>Tonkatsu Meal</h3><span class="menu-price">₱150</span></div><p class="menu-desc">Crispy golden pork cutlet served with steaming rice.</p></div>
+                <div class="menu-card"><div class="menu-item-header"><h3>Chicken Katsu</h3><span class="menu-price">₱140</span></div><p class="menu-desc">Tender breaded chicken fillet with savory sauce.</p></div>
+                <div class="menu-card"><div class="menu-item-header"><h3>Beef Tapa / Tocino</h3><span class="menu-price">₱95</span></div><p class="menu-desc">Classic Filipino comfort breakfast favorite.</p></div>
+                <div class="menu-card"><div class="menu-item-header"><h3>Smokey Burger</h3><span class="menu-price">₱170</span></div><p class="menu-desc">Juicy beef patty with bacon, cheese, and fresh lettuce.</p></div>
+                <div class="menu-card"><div class="menu-item-header"><h3>Mushroom Swiss Burger</h3><span class="menu-price">₱165</span></div><p class="menu-desc">Beef patty topped with savory mushrooms and melted cheese.</p></div>
+                <div class="menu-card"><div class="menu-item-header"><h3>Classic Burger</h3><span class="menu-price">₱125</span></div><p class="menu-desc">Pure beef patty, cheese, and crisp lettuce.</p></div>
+            </div>
+
+            <!-- Pasta & Snacks -->
+            <div id="snacks" class="menu-grid">
+                <div class="menu-card"><div class="menu-item-header"><h3>Chicken Pesto Pasta</h3><span class="menu-price">₱170</span></div><p class="menu-desc">Creamy pesto pasta with chicken strips and toasted bread.</p></div>
+                <div class="menu-card"><div class="menu-item-header"><h3>Spanish Sardines Pasta</h3><span class="menu-price">₱170</span></div><p class="menu-desc">Flavorful garlic, olive oil, and sardine medley.</p></div>
+                <div class="menu-card"><div class="menu-item-header"><h3>Chicken Carbonara</h3><span class="menu-price">₱150</span></div><p class="menu-desc">Rich creamy pasta tossed with savory herbs and cheese.</p></div>
+                <div class="menu-card"><div class="menu-item-header"><h3>In-Tah Snack Platter</h3><span class="menu-price">₱260</span></div><p class="menu-desc">Assorted delicious bites perfect for sharing with friends.</p></div>
+                <div class="menu-card"><div class="menu-item-header"><h3>Overload Nachos / Fries</h3><span class="menu-price">₱230</span></div><p class="menu-desc">Loaded with savory toppings, cheese sauce, and beef.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Meet Our Team</h2>
+                <p>The passionate individuals dedicated to giving you a warm café experience.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fa-solid fa-user-tie"></i></div>
+                    <h3>KZ Grace P. Cayme</h3>
+                    <p>Owner / GM</p>
+                    <small>Overall Management & Vision</small>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fa-solid fa-clipboard-user"></i></div>
+                    <h3>Aaron Calub</h3>
+                    <p>Operations Supervisor</p>
+                    <small>Daily Operations & Standards</small>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fa-solid fa-mug-saucer"></i></div>
+                    <h3>Dennis Aquino</h3>
+                    <p>Barista Team</p>
+                    <small>Beverage Preparation & Quality</small>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fa-solid fa-utensils"></i></div>
+                    <h3>Jimwell Gregorio</h3>
+                    <p>Kitchen Staff</p>
+                    <small>Delicious Food Preparation</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Careers & Info Split -->
+    <section id="careers" class="info-split">
+        <div class="container">
+            <div class="split-grid">
+                <div class="split-box">
+                    <h3>Join Our Team</h3>
+                    <p>We are looking for passionate, hardworking individuals who love coffee and want to grow with In-Tah Cafe.</p>
+                    <ul class="job-details">
+                        <li><i class="fa-solid fa-check"></i> <strong>Position:</strong> Full-Time Barista</li>
+                        <li><i class="fa-solid fa-check"></i> <strong>Location:</strong> Barangay Sagana, Santiago City</li>
+                        <li><i class="fa-solid fa-check"></i> <strong>Requirements:</strong> Friendly, hardworking, & willing to learn</li>
+                    </ul>
+                    <a href="mailto:kzgracepedral28@gmail.com" class="btn-primary">Send CV via Email</a>
+                </div>
+                <div class="split-box">
+                    <h3>Plan Your Visit</h3>
+                    <p>Whether you're studying, catching up with friends, or having a quiet date, our doors are open to welcome you.</p>
+                    <ul class="job-details">
+                        <li><i class="fa-solid fa-location-dot"></i> P-4 Llanes St. Sagana, Santiago City, Isabela</li>
+                        <li><i class="fa-solid fa-phone"></i> 0916 155 7068</li>
+                        <li><i class="fa-solid fa-bag-shopping"></i> Dine-in & Takeout Pickup Available</li>
+                    </ul>
+                    <a href="https://maps.app.goo.gl/VQZ91XpSCQCNLgCZ6" target="_blank" class="btn-primary" style="background: var(--earth-brown);">Get Directions</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <footer id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>In-Tah Cafe</h3>
+                    <p><i class="fa-solid fa-location-dot"></i> P-4 Llanes St. Sagana, Santiago City, Isabela</p>
+                    <p><i class="fa-solid fa-phone"></i> 0916 155 7068</p>
+                    <p><i class="fa-solid fa-envelope"></i> kzgracepedral28@gmail.com</p>
+                    <p><i class="fa-brands fa-facebook"></i> <a href="https://facebook.com/share/1FH3BSLJ6x" target="_blank">In-Tah Cafe Official Page</a></p>
+                </div>
+                <div class="contact-info">
+                    <h3>Operating Hours</h3>
+                    <ul class="hours-list">
+                        <li><span>Monday</span> <span>Closed</span></li>
+                        <li><span>Tuesday - Saturday</span> <span>1:00 PM - 10:00 PM</span></li>
+                        <li><span>Sunday</span> <span>11:00 AM - 7:00 PM</span></li>
+                    </ul>
+                </div>
+                <div class="contact-info">
+                    <h3>Accepted Payments</h3>
+                    <p>We accept Cash, GCash, Maya, and LandBank payments to make your orders convenient and hassle-free.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 In-Tah Cafe. Sip • Talk • Connect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function switchTab(evt, category) {
+            let grids = document.getElementsByClassName("menu-grid");
+            for (let i = 0; i < grids.length; i++) {
+                grids[i].classList.remove("active");
+            }
+            let buttons = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("active");
+            }
+            document.getElementById(category).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
