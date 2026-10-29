@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://yourdomain.com/sitemap.xml
+<link rel="canonical" href="https://brunoivhughes-stack.github.io/In-Tah-Cafe/">

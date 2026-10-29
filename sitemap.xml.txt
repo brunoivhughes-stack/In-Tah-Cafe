@@ -7,3 +7,4 @@
     <priority>1.0</priority>
   </url>
 </urlset>
+<link rel="canonical" href="https://brunoivhughes-stack.github.io/In-Tah-Cafe/">
